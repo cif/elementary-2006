@@ -1,0 +1,48 @@
+<title>Sortable List Demo</title>
+<script type="text/javascript" src="../element.js"> </script>
+<script type="text/javascript" src="../events.js"> </script>
+<script type="text/javascript" src="../components/draggable.js"> </script>
+<script type="text/javascript" src="../components/list.js"> </script>
+<script type="text/javascript" src="../timer.js"> </script>
+<script type="text/javascript" src="../animation.js"> </script>
+<script type="text/javascript">
+
+	var sorts; var list;
+	function onSort(list, order){
+		sorts.setContent("new order: " + order);
+	}
+	
+	window.onload = function(){
+		list = new List('sort', {width:150,height:false},onSort);
+		sorts = new Element('orders', {width:200,height:false});
+		
+	}
+		 
+</script>
+<style type="text/css">
+ body{ margin:0; padding:0; font-family:Verdana,Arial,tahoma; }
+ #sort{ 	-moz-user-select: none;
+			-khtml-user-select: none;
+			user-select: none; position:relative; margin:0; padding:0; list-style:none; margin:0; width:150px;   z-index:500;
+	
+		 }
+ 
+#orders{ position:relative; z-index:200; 
+	}
+ li{ position:relative; border:1px solid #CCC; color:#FFF; background-color:#666; font-size:10px; width:150px; overflow:ellipsis; padding:4px;}
+</style>
+</head>
+<body>
+<ul id="sort" onselectstart="return false;">	
+  <li><a href="javascript:list.removeItem(0)">ONE</a></li>
+ <li>TWO</li>
+ <li>THREE</li>
+ <li>FOUR</li>
+ <li>FIVE</li>
+
+</ul><br/>
+<a href="javascript:list.addItem()">new</a>
+<div id="orders"> </div>
+
+</body>
+</html>

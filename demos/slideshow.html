@@ -1,0 +1,44 @@
+<html>
+  <title>Slideshow Component</title>
+
+<script type="text/javascript" src="../element.js"> </script>
+<script type="text/javascript" src="../animation.js"> </script>
+<script type="text/javascript" src="../timer.js"> </script>
+<script type="text/javascript" src="../physics.js"> </script>
+<script type="text/javascript" src="../components/slideshow.js"> </script>
+<script type="text/javascript">
+
+	var images = new Array(		 'https://web.archive.org/web/20060505062331/http://benipsen.com/media/photos/berries_640.jpg',
+							     'https://web.archive.org/web/20060505062331/http://benipsen.com/media/photos/clouds_640.jpg',
+								 'https://web.archive.org/web/20060505062331/http://benipsen.com/media/photos/tree_640.jpg',
+								 'https://web.archive.org/web/20060505062331/http://benipsen.com/media/photos/redvine_640.jpg');
+	
+	var show;							
+	function doload(){
+		show = new Slideshow(images, "one", "two", {loader:"loading", status_id:"status", transTime:0.5, interval:9});
+		show.play();
+	}
+	
+</script>
+<style type="text/css">
+	body{ padding:0; margin:0; font-family:Verdana, Arial, Tahoma; font-size:14px; }
+	strong{ font-family:Georgia, Times; font-size:16px; }
+	.top{ position:relative; width:640px; height:70px; margin:20px auto; }
+	.show_wrap{ position:relative; margin:0 auto; width:640px;   }
+	.slideshow{ position:absolute; padding:10px; border:2px solid #666; top:30px; width:640px; height:480px; background-color:#FFF; }
+	.ssimg{ position:absolute; top:10px; left:10px; width:640px; height:480px; z-index:2; }
+	#loading{ position:absolute; width:150px; margin:85px; text-transform:uppercase; padding:10px; height:20px; text-align:center; z-index:10; top:15px; background-color:#000; color:#FFF; }
+	.bodyTxt{ position:relative; width:640px; padding:10px; margin:450px auto 0 auto; }
+</style>
+</head>
+<body onload="doload()">
+<div class="show_wrap">	
+	<div class="slideshow">
+		<div id="loading"> Loading Image... </div>
+		<img class="ssimg" id="one"/>
+		<img class="ssimg" id="two"/>
+	</div>
+	<a href="javascript:show.play();">play</a> | <a href="javascript:show.pause()">pause</a> | <span id="status"> status </span>
+ </div>
+</body>
+</html>

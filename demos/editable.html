@@ -1,0 +1,26 @@
+<html>
+  <title>Editable Element Component</title>
+
+<script type="text/javascript" src="../element.js"> </script>
+<script type="text/javascript" src="../components/editable.js"> </script>
+<script type="text/javascript">
+
+	var editableP; var editableS;
+	window.onload = function(){
+ 			editableP = new EditableElement('editable_p');
+			editableS = new EditableElement('editable_s');
+	 }
+
+</script>
+<style type="text/css">
+	body{ font-family:Verdana, Tahoma, Sans-serif; }
+	#editable_p{ width: 300px;  }
+	#editable_s{ width:300px; background-color:#CFCFCF; }
+	.editable{   border:1px solid #FFF; font-family:Verdana,Tahoma,Sans-serif;}
+</style>
+</head>
+<body>
+  <span id="editable_s">Editable Title</span><br/>
+	<p id="editable_p">This is an editable paragraph. Double click me to edit this text and it will transform magically into an editable field</p>	
+  </body>
+</html>
